@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Lembur Karyawan</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #007bff;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .sidebar img {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+        }
+        .sidebar-heading {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #0056b3;
+            color: white;
+        }
+        .container {
+            margin-left: 250px;
+            padding: 20px;
+            width: calc(100% - 250px);
+            overflow-y: auto;
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-status {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-status:hover {
+            background-color: #0056b3;
+        }
+        table.dataTable {
+            width: 100%;
+            margin-top: 10px;
+        }
+        table.dataTable th, table.dataTable td {
+            text-align: center;
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+        }
+        table.dataTable th {
+            background-color: #007bff;
+            color: white;
+        }
+        table.dataTable tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-heading">
+            <img src="univ.png" alt="Logo">
+            <span>UNIVERSITY LOS ANGEL</span>
+        </div>
+        <div class="text-center p-3">
+            <img src="user.png" alt="User" width="50" height="50">
+            <p>Welcome, Fauzi<br><small>Administrator</small></p>
+        </div>
+        <a href="dashboard.html"><i class="fas fa-home mr-2"></i> Dashboard</a>
+        <p class="ml-3">MENU KARYAWAN</p>
+        <a href="karyawan.html"><i class="fas fa-users mr-2"></i> Karyawan</a>
+        <a href="jabatan.html"><i class="fas fa-briefcase mr-2"></i> Jabatan</a>
+        <a href="divisi.html"><i class="fas fa-building mr-2"></i> Divisi</a>
+        <p class="ml-3">MENU ABSENSI</p>
+        <a href="absensi.html"><i class="fas fa-calendar-alt mr-2"></i> Absensi</a>
+        <a href="izin1.html" ><i class="fas fa-user-clock mr-2"></i> Izin</a>
+        <a href="lembur.html"class="active"><i class="fas fa-business-time mr-2"></i> Lembur</a>
+        <a href="#" class="bg-primary text-white"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
+    </div>
+
+    <div class="container">
+        <h1>Daftar Lembur Karyawan</h1>
+        <button class="btn-status float-right mb-3">Ubah Status</button>
+        <table id="izinTable" class="display">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Tanggal</th>
+                    <th>Jam Lembur 
+                    Mulai | Berakhir
+                </th>
+                    <th>Keperluan Lembur</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Yovan Fiqri</td>
+                    <td>2024-2-11</td>
+                    <td>10:35:00 - 12:00:00 </td>
+                    <td> printer rusak</td>
+                    <td>Menunggu Konfirmasi</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Yovan Fiqri</td>
+                    <td>2024-2-11</td>
+                    <td>11:04:00 - 15:00:00</td>
+                    <td> printer rusak</td>
+                    <td>Menunggu Konfirmasi</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Yovan Fiqri</td>
+                    <td>2024-2-11</td>
+                    <td>01:35:00 - 03:00:00</td>
+                    <td> printer rusak</td>
+                    <td>Menunggu Konfirmasi</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Yovan Fiqri</td>
+                    <td>2023-04-29</td>
+                    <td>09:54:00 - 11:00:00</td>
+                    <td> printer rusak</td>
+                    <td>Disetujui</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Yovan Fiqri</td>
+                    <td>2024-2-11</td>
+                    <td>10:49:00 - 13:00:00</td>
+                    <td> printer rusak</td>
+                    <td>Menunggu Konfirmasi</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Renate Nindya</td>
+                    <td>2024-2-11</td>
+                    <td>09:00:00 - 17:00:00</td>
+                    <td> printer rusak</td>
+                    <td>Disetujui</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#izinTable').DataTable({
+                "pageLength": 5,
+                "lengthMenu": [5, 10, 20, 50],
+                "language": {
+                    "search": "Search:",
+                    "lengthMenu": "Show _MENU_ entries",
+                    "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                    "paginate": {
+                        "first": "First",
+                        "last": "Last",
+                        "next": "Next",
+                        "previous": "Previous"
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

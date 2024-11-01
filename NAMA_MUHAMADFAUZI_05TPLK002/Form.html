@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Karyawan</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            background-color: #f4f4f4;
+        }
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #007bff;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar .menu-section {
+            margin-top: 20px;
+            padding-left: 15px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .sidebar ul li {
+            padding: 10px 15px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar ul li a:hover {
+            background-color: #0056b3;
+            border-radius: 4px;
+        }
+        .sidebar ul li .icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        /* Content styling */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="password"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .btn-primary {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Universitas Los Angel</h2>
+        <ul>
+            <li><a href="#"><span class="icon">🏠</span>Dashboard</a></li>
+            
+            <div class="menu-section">MENU KARYAWAN</div>
+            <li><a href="karyawan.html"><span class="icon">👤</span>Karyawan</a></li>
+            <li><a href="jabatan.html"><span class="icon">📝</span>Jabatan</a></li>
+            <li><a href="divisi.html"><span class="icon">📂</span>Divisi</a></li>
+
+            <div class="menu-section">MENU ABSENSI</div>
+            <li><a href="absensi.html"><span class="icon">📅</span>Absensi</a></li>
+            <li><a href="izin1.html"><span class="icon">✏️</span>Izin</a></li>
+            <li><a href="lembur.html"><span class="icon">🕒</span>Lembur</a></li>
+
+            <div class="menu-section">MENU PENGGAJIAN</div>
+            <li><a href="#"><span class="icon">💰</span>Slip Gaji</a></li>
+            <li><a href="#"><span class="icon">🖨️</span>Cetak Slip Gaji</a></li>
+
+            <div class="menu-section">MENU LAPORAN</div>
+            <li><a href="#"><span class="icon">📊</span>Cetak Laporan</a></li>
+
+            <div class="menu-section">MENU ADMIN</div>
+            <li><a href="#"><span class="icon">👥</span>Pengguna</a></li>
+            <div class="form-buttons">
+                    <button type="reset" class="btn btn-primary">Logout</button>  
+                </div>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="form-container">
+            <h2>Tambah Data Karyawan</h2>
+            <form action="proses_tambah_karyawan.php" method="POST">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" required>
+                </div>
+                <div class="form-group">
+                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                    <select id="jenis_kelamin" name="jenis_kelamin" required>
+                        <option value="">-- Pilih Jenis Kelamin --</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="no_hp">No HP</label>
+                    <input type="text" id="no_hp" name="no_hp" required>
+                </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <textarea id="alamat" name="alamat" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="jabatan">Jabatan</label>
+                    <select id="jabatan" name="jabatan" required>
+                        <option value="">-- Pilih Jabatan --</option>
+                        <option value="SPV">SPV</option>
+                        <option value="STAFF">STAFF</option>
+                        <option value="MAGANG">MAGANG</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="divisi">Divisi</label>
+                    <select id="divisi" name="divisi" required>
+                        <option value="">-- Pilih Divisi --</option>
+                        <option value="IT">IT</option>
+                        <option value="HRD">HRD</option>
+                        <option value="Finance">Finance</option>
+                    </select>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="reset" class="btn btn-danger">Batal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

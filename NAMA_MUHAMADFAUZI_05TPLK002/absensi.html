@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAFTAR HADIR KARYAWAN</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto; /* Menambahkan scroll ke atas dan bawah */
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar img {
+            display: block;
+            margin: 0 auto;
+        }
+        .sidebar-heading {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .container {
+            margin-left: 250px;
+            padding: 20px;
+            width: calc(100% - 250px);
+            overflow-y: auto;
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table.dataTable {
+            width: 100%;
+            margin-top: 10px;
+        }
+        table.dataTable th,
+        table.dataTable td {
+            text-align: center;
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+        }
+        table.dataTable th {
+            background-color: #3498db;
+            color: white;
+        }
+        table.dataTable tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 6px 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-heading">
+            <img src="univ.png" alt="Logo" width="100" height="100">
+            <span>University Los Angel</span>
+        </div>
+        <div class="text-center p-3">
+            <img src="user.png" alt="User" width="50" height="50">
+            <p>Welcome, Fauzi<br><small>Administrator</small></p>
+        </div>
+        <a href="dashboard.html"><i class="fas fa-home mr-2"></i> DASHBOARD</a>
+        <p class="ml-3">MENU KARYAWAN</p>
+        <a href="karyawan.html"><i class="fas fa-users mr-2"></i> Karyawan</a>
+        <a href="jabatan.html"><i class="fas fa-briefcase mr-2"></i> Jabatan</a>
+        <a href="divisi.html"><i class="fas fa-building mr-2"></i> Divisi</a>
+        <p class="ml-3">MENU ABSENSI</p>
+        <a href="absensi.html" class="bg-primary text-white"><i class="fas fa-sign-out-alt mr-2"></i> Absen </a>
+        <a href="izin1.html"><i class="fas fa-user-clock mr-2"></i> Izin</a>
+        <a href="lembur.html"><i class="fas fa-business-time mr-2"></i> Lembur</a>
+        <a href="izin1.html"><i class="fas fa-user-clock mr-2"></i> Logout</a>   
+         </div>
+
+    <div class="container">
+        <h1>Daftar Hadir Karyawan</h1>
+        <table id="attendanceTable" class="display">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nama Karyawan</th>
+                    <th>Tanggal</th>
+                    <th>Lokasi Absen</th>
+                    <th>Jam Masuk</th>
+                    <th>Jam Keluar</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Achmad Febry</td>
+                    <td>2023-05-10</td>
+                    <td>Kampus Kimia</td>
+                    <td>16:21:14</td>
+                    <td>18:09:22</td>
+                    <td><button>Lihat</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Yovan Fiqri</td>
+                    <td>2023-05-10</td>
+                    <td>UNPAM Viktor</td>
+                    <td>10:35:02</td>
+                    <td>10:35:02</td>
+                    <td><button>Lihat</button></td>
+                </tr>
+                        <tr>
+                    <td>3</td>
+                    <td>Ardi</td>
+                    <td>2024-1-11</td>
+                    <td>KAMPUS 3</td>
+                    <td>06:30:02</td>
+                    <td>17:00:02</td>
+                    <td><button>Lihat</button></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Afri</td>
+                    <td>2024-1-11</td>
+                    <td>KAMPUS 4</td>
+                    <td>06:35:02</td>
+                    <td>17:40:02</td>
+                    <td><button>Lihat</button></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Abri pangestu</td>
+                    <td>2024-1-11</td>
+                    <td>Kampus 5</td>
+                    <td>08:35:02</td>
+                    <td>12:40:02</td>
+                    <td><button>Lihat</button></td>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#attendanceTable').DataTable({
+                "pageLength": 5,
+                "lengthMenu": [5, 10, 20, 50],
+                "language": {
+                    "search": "Cari:",
+                    "lengthMenu": "Tampilkan _MENU_ entri",
+                    "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Berikutnya",
+                        "previous": "Sebelumnya"
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
